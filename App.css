@@ -1,0 +1,25 @@
+import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import './BlogApp.css'; 
+
+function BlogApp() {
+  const [markdownContent, setMarkdownContent] = useState('');
+
+  return (
+    <div className="blog-app">
+      <div className="markdown-editor">
+        <h2>Write an Article</h2>
+        <textarea
+          value={markdownContent}
+          onChange={e => setMarkdownContent(e.target.value)}
+        />
+      </div>
+      <div className="article-preview">
+        <h2>Article Preview</h2>
+        <ReactMarkdown>{markdownContent}</ReactMarkdown>
+      </div>
+    </div>
+  );
+}
+
+export default BlogApp;
